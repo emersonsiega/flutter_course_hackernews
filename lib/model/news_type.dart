@@ -1,0 +1,1 @@
+enum NewsType { TOP, NEWEST }
