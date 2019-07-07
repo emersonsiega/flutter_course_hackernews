@@ -61,6 +61,12 @@ class ItemCard extends StatelessWidget {
                 context: context,
               );
             },
+            onLongPress: () {
+              _shareWhatsApp(
+                url: item.url,
+                context: context,
+              );
+            },
           ),
         );
       },
@@ -107,16 +113,44 @@ class ItemCard extends StatelessWidget {
     if (await canLaunch(url)) {
       await launch(url);
     } else {
-      showDialog(
-          context: context,
-          barrierDismissible: true,
-          builder: (context) {
-            return Container(
-              child: Center(
-                child: Text("Não foi possível abrir URL."),
-              ),
-            );
-          });
+      _showErrorMessage(
+        context: context,
+        text: "Não foi possível abrir a notícia",
+      );
     }
+  }
+
+  void _shareWhatsApp({String url, BuildContext context}) async {
+    final text = "Olha só essa notícia que encontrei no HackerNews! $url";
+    final whatsURL = 'whatsapp://send?text=$text';
+
+    if (await canLaunch(whatsURL)) {
+      await launch(whatsURL);
+    } else {
+      _showErrorMessage(
+        context: context,
+        text: "Você precisa ter o WhatsApp instalado para compartilhar as notícias",
+      );
+    }
+  }
+
+  void _showErrorMessage({BuildContext context, String text}) {
+    showDialog(
+      context: context,
+      barrierDismissible: true,
+      builder: (context) {
+        return SimpleDialog(
+          title: Text("Ops 😖"),
+          children: <Widget>[
+            Container(
+              padding: const EdgeInsets.all(16.0),
+              child: Center(
+                child: Text(text),
+              ),
+            ),
+          ],
+        );
+      },
+    );
   }
 }

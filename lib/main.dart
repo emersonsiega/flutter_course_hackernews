@@ -13,7 +13,9 @@ class MyApp extends StatelessWidget {
       debugShowCheckedModeBanner: false,
       theme: _buildThemeData(),
       routes: _buildRoutes(),
-      home: Home(),
+      home: Home(
+        type: NewsType.TOP,
+      ),
     );
   }
 
