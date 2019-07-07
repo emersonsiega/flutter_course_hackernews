@@ -1,16 +1,15 @@
-# hackernews_flutter
+# HackerNews Flutter
 
-A Flutter implementation of HackerNews
+A Flutter implementation of HackerNews, created for a Flutter Course.
 
-## Getting Started
+# Final app images
 
-This project is a starting point for a Flutter application.
+Interfaces based on [this](https://www.figma.com/file/Gnqo4Vka6avTM2oM97B63KLg/HackerNews?node-id=0%3A1) prototype.
 
-A few resources to get you started if this is your first Flutter project:
+## Top news
 
-- [Lab: Write your first Flutter app](https://flutter.dev/docs/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://flutter.dev/docs/cookbook)
+![Top news](https://i.imgur.com/7bSaQZf.png)
 
-For help getting started with Flutter, view our 
-[online documentation](https://flutter.dev/docs), which offers tutorials, 
-samples, guidance on mobile development, and a full API reference.
+## Newest news
+
+![Newest](https://i.imgur.com/ktS5KDE.png)
