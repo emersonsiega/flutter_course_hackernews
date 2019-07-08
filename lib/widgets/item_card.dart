@@ -122,7 +122,7 @@ class ItemCard extends StatelessWidget {
 
   void _shareWhatsApp({String url, BuildContext context}) async {
     final text = "Olha só essa notícia que encontrei no HackerNews! $url";
-    final whatsURL = 'whatsapp://send?text=$text';
+    final whatsURL = 'whatsapp://send?text=${Uri.encodeQueryComponent(text)}';
 
     if (await canLaunch(whatsURL)) {
       await launch(whatsURL);
